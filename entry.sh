@@ -25,7 +25,7 @@ while [ $# -gt 0 ]; do
 
   [ -d "${MNT}" ] || mkdir -p "${MNT}"
 
-  ENDPOINT="${FS_ID}.${EC2_AZ}.efs.${EC2_AZ%?}.amazonaws.com:/"
+  ENDPOINT="${FS_ID}.efs.${EC2_AZ}.${EC2_AZ%?}.amazonaws.com:/"
   case "${MOUNT_MODE}" in
     rancheros)
       echo "mounts: [ ['${ENDPOINT}', '${MNT}', 'nfs4', 'nfsvers=4.1,nolock'] ]" | ros config merge
